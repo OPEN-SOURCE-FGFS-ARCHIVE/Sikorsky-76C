@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+<sim>
+    <model>
+        <livery>
+            <name type="string">Helijet Charter GmbH</name>
+            <texture>Liveries\helijet.jpg</texture>
+          
+        </livery>
+        <sliding-door>1</sliding-door>
+    </model>
+	<rendering>
+    <refl_correction type="string">-0.3</refl_correction>
+    </rendering>
+</sim>
+</PropertyList>

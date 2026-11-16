@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+    <path>needle_small.ac</path>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>needle.small</object-name>
+        <expression>
+            <product>
+                <product>
+                    <property>position/altitude-ft</property>
+                    <value>0.1</value>
+                </product>
+                <value>0.36</value>
+            </product>
+        </expression>
+        <factor>0.36</factor>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>-0</z>
+        </axis>
+        <center>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0</z-m>
+        </center>
+    </animation>
+
+</PropertyList>

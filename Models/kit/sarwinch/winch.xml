@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+
+ <path>winch.ac</path>
+ 
+<animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>200</max-m>
+ </animation>
+ 
+
+  
+  
+    <model>
+  <name>Rescue-Man</name> 
+    <path>Aircraft/Sikorsky-76C/Models/kit/Rescue/Rescue-Man.xml</path>
+    <offsets>
+      <x-m>-0.6</x-m>
+      <y-m>0.05 </y-m>
+      <z-m>-1.05</z-m>
+	  <pitch-deg>0</pitch-deg>
+	  <heading-deg>0</heading-deg>
+    </offsets>
+	
+  </model>	
+  
+<animation>
+  <type>rotate</type>
+  <object-name>winch1</object-name>
+ <object-name>winch2</object-name>
+
+	
+  <property>sim/model/bo105/doors/door[2]/position-norm</property>
+  
+  <factor>-60</factor>
+  <axis>
+   <x1-m>0</x1-m>
+   <y1-m>0</y1-m>
+   <z1-m>0</z1-m>
+   <x2-m>0</x2-m>
+   <y2-m></y2-m>
+   <z2-m>0.09</z2-m>
+  </axis>
+ </animation>
+	
+ 
+</PropertyList>
+
+
+

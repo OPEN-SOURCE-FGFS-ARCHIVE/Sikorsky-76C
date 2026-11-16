@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+<model>
+<name>pilot1</name>
+<path>Aircraft/Sikorsky-76C/Models/People/sar/pilots.xml</path>
+<offsets>
+<x-m> -8.5 </x-m>
+<y-m>  0.05 </y-m>
+<z-m> -1.15 </z-m>
+</offsets>
+</model>
+
+<model>
+<name>pilot2</name>
+<path>Aircraft/Sikorsky-76C/Models/People/sar/pilots.xml</path>
+<offsets>
+<x-m> -8.5 </x-m>
+<y-m> -0.84 </y-m>
+<z-m> -1.15 </z-m>
+</offsets>
+</model>
+
+<!-- Crew seats -->
+
+<!--  front row -->
+
+
+
+<model>
+<path>Aircraft/Sikorsky-76C/Models/kit/hems/chair.xml</path>
+<offsets>
+<x-m>-6.4  </x-m>
+<y-m>  0.63 </y-m>
+<z-m> -1.52 </z-m>
+<heading-deg>90</heading-deg>
+</offsets>
+</model>
+
+
+
+<model>
+<path>Aircraft/Sikorsky-76C/Models/kit/hems/chair.xml</path>
+<offsets>
+<x-m>-6.4  </x-m>
+<y-m>  -0.63 </y-m>
+<z-m> -1.52 </z-m>
+<heading-deg>90</heading-deg>
+</offsets>
+</model>
+
+
+<!-- box -->
+<model>
+<path>Aircraft/Sikorsky-76C/Models/kit/hems/box.xml</path>
+<offsets>
+<x-m> -6.73 </x-m>
+<y-m>  0.0 </y-m>
+<z-m> -1.6 </z-m>
+<heading-deg>90</heading-deg>
+</offsets>
+</model>
+
+<!-- medipack -->
+<model>
+<path>Aircraft/Sikorsky-76C/Models/kit/hems/medipack.xml</path>
+<offsets>
+<x-m> -6.8 </x-m>
+<y-m>  0.0 </y-m>
+<z-m> -1.28 </z-m>
+<heading-deg>180</heading-deg>
+</offsets>
+</model>
+
+<!-- defib -->
+<model>
+<path>Aircraft/Sikorsky-76C/Models/kit/hems/defib.xml</path>
+<offsets>
+<x-m> -4.7 </x-m>
+<y-m>  0.0 </y-m>
+<z-m> -0.5 </z-m>
+<heading-deg>180</heading-deg>
+</offsets>
+</model>
+
+<!-- mask -->
+<model>
+<path>Aircraft/Sikorsky-76C/Models/kit/hems/mask.xml</path>
+<offsets>
+<x-m> -4.7 </x-m>
+<y-m>  -0.6 </y-m>
+<z-m> -0.5 </z-m>
+<heading-deg>180</heading-deg>
+</offsets>
+</model>
+
+<!-- gel -->
+<model>
+<path>Aircraft/Sikorsky-76C/Models/kit/hems/gel.xml</path>
+<offsets>
+<x-m> -5.2 </x-m>
+<y-m>  -1 </y-m>
+<z-m> -0.7 </z-m>
+<heading-deg>270</heading-deg>
+</offsets>
+</model>
+
+<!-- Bed -->
+<model>
+<path>Aircraft/Sikorsky-76C/Models/kit/Seats/bed.xml</path>
+<offsets>
+<x-m> -4.73 </x-m>
+<y-m>  0.0 </y-m>
+<z-m> 0.3 </z-m>
+</offsets>
+</model>
+
+<model>
+<path>Aircraft/Sikorsky-76C/Models/kit/Seats/bed.xml</path>
+<offsets>
+<x-m> -5.2 </x-m>
+<y-m>  0.0 </y-m>
+<z-m> -0.3 </z-m>
+</offsets>
+</model>
+
+<!-- Search Light -->
+<model>
+<path>Aircraft/Sikorsky-76C/Models/kit/SearchLight2/searchlight.xml</path>
+<offsets>
+<x-m> -6.4 </x-m>
+<y-m>  -1.05 </y-m>
+<z-m> -1.55 </z-m>
+
+</offsets>
+</model>
+
+<!-- FLIR -->
+
+<model>
+<path>Aircraft/Sikorsky-76C/Models/kit/flir/flir.xml</path>
+<offsets>
+<x-m> -9.05 </x-m>
+<y-m>0.34 </y-m>
+<z-m> -1.55 </z-m>
+
+</offsets>
+</model>
+<!-- winch -->
+<model>
+<path>Aircraft/Sikorsky-76C/Models/kit/sarwinch/winch.xml</path>
+<offsets>
+<x-m>-5.15</x-m>
+<y-m>0.75</y-m>
+<z-m>0</z-m>
+
+</offsets>
+</model>
+
+<model>
+ <name>>winchman</name> 
+    <path>Aircraft/Sikorsky-76C/Models/kit/Rescue/Rescue-Op.xml</path>
+    <offsets>
+      <x-m>-5.45</x-m>
+      <y-m>1.48 </y-m>
+      <z-m>-5.9</z-m>
+	  <pitch-deg>0</pitch-deg>
+	  <heading-deg>0</heading-deg>
+    </offsets>
+	
+  </model>	
+
+
+
+</PropertyList>

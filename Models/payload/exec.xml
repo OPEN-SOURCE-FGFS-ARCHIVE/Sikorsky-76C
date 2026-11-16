@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+<model>
+<name>pilot1</name>
+<path>Aircraft/Sikorsky-76C/Models/People/pilot/pilot.xml</path>
+<offsets>
+<x-m> -7.99 </x-m>
+<y-m>  0.45 </y-m>
+<z-m> -0.95 </z-m>
+</offsets>
+</model>
+
+
+<!-- Passenger seats -->
+
+<!-- seats -->
+<model>
+<path>Aircraft/Sikorsky-76C/Models/kit/exec/seats.xml</path>
+<offsets>
+<x-m> -7.55 </x-m>
+<y-m>0 </y-m>
+<z-m> -1.32578 </z-m>
+<heading-deg>180</heading-deg>
+</offsets>
+</model>
+
+
+<!-- tv -->
+<model>
+<path>Aircraft/Sikorsky-76C/Models/kit/lcdtv/tv.xml</path>
+<offsets>
+<x-m> -7.52 </x-m>
+<y-m>0 </y-m>
+<z-m> -0.72578 </z-m>
+<heading-deg>90</heading-deg>
+
+</offsets>
+</model>
+
+</PropertyList>

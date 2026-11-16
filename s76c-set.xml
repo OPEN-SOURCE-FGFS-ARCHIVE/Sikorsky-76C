@@ -1,0 +1,865 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<sim>
+		<description>Sikorsky S76C++</description>
+		<author>Melchior Franz, Maik Justus (FDM), Horacio Contreras (Cockpit Textures)</author>
+		<status>Public Alpha 1</status>
+		<license>GPL v2</license>
+
+		<flight-model>yasim</flight-model>
+		<aero>S76c</aero>
+		<fuel-fraction>1.0</fuel-fraction>
+
+		<startup>
+			<splash-texture>Aircraft/Sikorsky-76C/splash.png</splash-texture>
+		</startup>
+
+		<gui>
+			<style>
+				<colors>
+					<splash-font>
+						<red>0.25</red>
+						<green>0.28</green>
+						<blue>0.31</blue>
+					</splash-font>
+				</colors>
+			</style>
+		</gui>
+
+		<instrumentation>
+			<path>Aircraft/Sikorsky-76C/Instruments/instrumentation.xml</path>
+		</instrumentation>
+		
+			  <systems>
+      <electrical>
+			<path>Aircraft/Sikorsky-76C/Systems/fgukelectrical.xml</path>
+      </electrical>
+<autopilot>
+        <path>Aircraft/Sikorsky-76C/Systems/autopilot-H.xml</path>
+      </autopilot>
+	   <autopilot n="101">
+        <path>Aircraft/Sikorsky-76C/Systems/glass-rain.xml</path>
+        </autopilot>
+    </systems> 
+
+		<sound>
+			<path>Aircraft/Sikorsky-76C/Sounds/sound.xml</path>
+		</sound>
+
+		<submodels>
+			<serviceable type="bool">true</serviceable>
+			 <path>Aircraft/Sikorsky-76C/Models/payload/loads.xml</path>
+		</submodels>
+
+		<panel>
+			<visibility archive="n">false</visibility>
+		</panel>
+
+		<model>
+			<path archive="y">Aircraft/Sikorsky-76C/Models/s76c.xml</path>
+			  <rescue-lift>0.01</rescue-lift>
+                <rescue type="bool">false</rescue>
+			<bo105>
+			
+				<tail-angle-deg type="int" archive="y">0</tail-angle-deg>
+				<state type="int">0</state>
+				<rotor-step-deg type="float">-1.0</rotor-step-deg>
+
+				<particles>
+					<enabled type="bool">true</enabled>
+				</particles>
+
+				
+
+				<doors>
+					<door>
+						<position-norm type="double">0.0</position-norm>
+						<name type="string">pilot's door</name>
+					</door>
+
+					<door>
+						<position-norm type="double">0.0</position-norm>
+						<name type="string">copilot's door</name>
+					</door>
+
+					<door>
+						<position-norm type="double">0.0</position-norm>
+						<name type="string">right backdoor</name>
+					</door>
+
+					<door>
+						<position-norm type="double">0.0</position-norm>
+						<name type="string">left backdoor</name>
+					</door>
+
+					<door>
+						<position-norm type="double">0.0</position-norm>
+						<name type="string">right reardoor</name>
+					</door>
+
+					<door>
+						<position-norm type="double">0.0</position-norm>
+						<name type="string">left reardoor</name>
+					</door>
+				</doors>
+				
+			
+			</bo105>
+
+		
+		</model>
+		
+	
+
+		<multiplay>
+			<generic>
+				
+				
+				 <!-- Nav lights on -->
+      <int n="0" alias="controls/switches/nav-lights-switch" />
+      <!-- Beacon on -->
+      <int n="1" alias="controls/switches/beacon-switch" />
+      <!-- Landing lights on -->
+      <int n="2" alias="controls/switches/landing-lights-switch" />
+	    <!-- Taxi light on -->
+      <int n="3" alias="controls/switches/strobe-switch" />
+	   <!-- search light on -->
+      <int n="8" alias="controls/switches/search-light-switch" />
+      <!-- Crashed -->
+      <int n="7" alias="sim/crashed" />
+	  
+				<float n="0" alias="/sim/model/bo105/doors/door[0]/position-norm"/>
+				<float n="1" alias="/sim/model/bo105/doors/door[1]/position-norm"/>
+				<float n="2" alias="/sim/model/bo105/doors/door[2]/position-norm"/>
+				<float n="3" alias="/sim/model/bo105/doors/door[3]/position-norm"/>
+				<float n="4" alias="/sim/model/bo105/doors/door[4]/position-norm"/>
+				<float n="5" alias="/sim/model/bo105/doors/door[5]/position-norm"/>
+				<float n="6" alias="/orientation/pitch-deg"/>	<!-- rotor particles -->
+				<float n="7" alias="/position/gear-agl-m"/>	<!-- rotor particles -->
+				<float n="8" alias="/orientation/roll-deg"/><!-- rotor particles -->
+				<float n="9" alias="/rotors/main/torque"/>	<!-- rotor particles -->
+				
+				<float n="10" alias="sim/model/turret-positions/turretx"/><!--Searchlight over MP -->
+				<float n="11" alias="sim/model/turret-positions/turretz"/><!--searchlight over MP -->
+				<float n="12" alias="/sim/model/rescue"/><!--winchman over MP -->
+				<float n="13" alias="/sim/model/rescue-lift"/><!--winchman over MP -->
+		
+                 <string alias="/sim/weight[5]/selected" n="1"/> <!-- Payload over multiplayer -->
+                 <string n="16" alias="/sim/remote/pilot-callsign" />
+			</generic>
+		</multiplay>
+
+		<rendering>
+			<camera-group>
+				<znear type="double">0.1</znear>
+			</camera-group>
+		</rendering>
+
+		<view>
+            <internal archive="y">true</internal>
+            <config>
+                <x-offset-m archive="y">0.45</x-offset-m>
+                <y-offset-m archive="y">-1.1</y-offset-m>
+                <z-offset-m archive="y">-2.1</z-offset-m>
+                <pitch-offset-deg>-16</pitch-offset-deg>
+                <limits>
+                    <enabled type="bool">true</enabled>
+                    <left>
+                        <heading-max-deg type="double">120</heading-max-deg>
+                        <x-offset-max-m type="double">0.22</x-offset-max-m>
+                        <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
+                    </left>
+                    <right>
+                        <heading-max-deg type="double">140</heading-max-deg>
+                        <x-offset-max-m type="double">0.25</x-offset-max-m>
+                        <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+                    </right>
+                </limits>
+            </config>
+        </view>
+
+    <view n="1">
+        <config>
+            <target-y-offset-m archive="y" type="double">-1.5</target-y-offset-m>
+        </config>
+    </view>
+
+    <view n="2">
+        <config>
+            <target-y-offset-m archive="y" type="double">-1.5</target-y-offset-m>
+        </config>
+    </view>
+    
+    <view n="3">
+        <config>
+            <target-y-offset-m archive="y" type="double">-1.5</target-y-offset-m>
+        </config>
+    </view>
+        
+    <view n="4">
+        <config>
+            <target-y-offset-m archive="y" type="double">-1.5</target-y-offset-m>
+        </config>
+    </view>
+        
+    <view n="5">
+        <config>
+            <target-y-offset-m archive="y" type="double">-1.5</target-y-offset-m>
+        </config>
+    </view>
+        
+    <view n="6">
+        <config>
+            <target-y-offset-m archive="y" type="double">-1.5</target-y-offset-m>
+        </config>
+    </view>
+
+    <view n="7">
+        <config>
+            <target-y-offset-m archive="y" type="double">-1.5</target-y-offset-m>
+        </config>
+    </view>
+
+    <view n="101">
+        <name>Panel View</name>
+        <type>lookfrom</type>
+        <internal type="bool">true</internal>
+        <config>
+            <from-model type="bool">true</from-model>
+            <from-model-idx type="int">0</from-model-idx>
+            <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+            <default-field-of-view-deg type="double">45.0</default-field-of-view-deg>
+            <x-offset-m archive="y">0.130</x-offset-m>
+            <y-offset-m archive="y">-1.44</y-offset-m>
+            <z-offset-m archive="y">-2.03</z-offset-m>
+            <heading-offset-deg>0</heading-offset-deg>
+            <pitch-offset-deg>-10</pitch-offset-deg>
+            <default-heading-offset-deg>0</default-heading-offset-deg>
+            <default-pitch-offset-deg>-10</default-pitch-offset-deg>
+        </config>
+    </view>
+
+  <view n="100">
+    <name>Passenger View</name>
+    <internal archive="y">true</internal>
+    <type>lookfrom</type>
+    <config>
+      <from-model type="bool">true</from-model>
+      <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+      <heading-offset-deg type="double">180</heading-offset-deg>
+      <x-offset-m archive="y" type="double">-0.60 </x-offset-m> <!--Right-->
+      <y-offset-m archive="y" type="double">-1.16 </y-offset-m> <!--Up-->
+      <z-offset-m archive="y" type="double">-1.45 </z-offset-m> <!--Back-->
+      <default-heading-offset-deg>180</default-heading-offset-deg>
+      <pitch-offset-deg>-5</pitch-offset-deg>
+      <dynamic-view type="bool">true</dynamic-view>
+    </config>
+    </view>
+	
+	<view n="102">
+    <name>Winch Cam</name>
+    <internal archive="y">true</internal>
+    <type>lookfrom</type>
+    <config>
+      <from-model type="bool">true</from-model>
+       <default-field-of-view-deg type="double">110</default-field-of-view-deg>
+      <x-offset-m archive="y" type="double">1.5 </x-offset-m> <!--Right-->
+      <y-offset-m archive="y" type="double">-0.45 </y-offset-m> <!--Up-->
+      <z-offset-m archive="y" type="double">-0.0 </z-offset-m> <!--Back-->
+      <default-heading-offset-deg>0</default-heading-offset-deg>
+      <pitch-offset-deg>-89</pitch-offset-deg>
+      <dynamic-view type="bool">true</dynamic-view>
+    </config>
+    </view>
+	
+		 <view n="103">
+    <name>Pilot cam</name>
+       <type>lookfrom</type>
+			<internal type="bool">true</internal>
+        <config>
+		 <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+        <x-offset-m archive="y">0</x-offset-m>
+                <y-offset-m archive="y">-0.95</y-offset-m>
+                <z-offset-m archive="y">-2.7</z-offset-m>
+          <pitch-offset-deg>-20</pitch-offset-deg>
+		  <heading-offset-deg>199</heading-offset-deg>
+          <default-field-of-view-deg>110</default-field-of-view-deg>
+        </config>
+		  </view>
+		  
+		  
+		 <view n="104">
+    <name>Cockpit cam</name>
+       <type>lookfrom</type>
+			<internal type="bool">true</internal>
+        <config>
+		 <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+        <x-offset-m archive="y">0</x-offset-m>
+                <y-offset-m archive="y">-0.95</y-offset-m>
+                <z-offset-m archive="y">-1.7</z-offset-m>
+          <pitch-offset-deg>-20</pitch-offset-deg>
+		  <heading-offset-deg>0</heading-offset-deg>
+          <default-field-of-view-deg>110</default-field-of-view-deg>
+        </config>
+		  </view>  
+
+        <chase-distance-m type="double" archive="y">-30.0</chase-distance-m>
+
+		<hud>
+			<enable3d>false</enable3d>
+		</hud>
+
+     
+<!--  11,700 Max Gross Weight-->
+      	<weight n="0">
+			<name>Pilot</name>
+			<weight-lb>180</weight-lb>
+			<max-lb>300</max-lb>
+		</weight>
+
+		<weight n="1">
+			<name>Co-Pilot</name>
+			<weight-lb>0</weight-lb>
+			<max-lb>300</max-lb>
+		</weight>
+
+		<weight n="2">
+			<name>Passengers</name>
+			<weight-lb>0</weight-lb>
+			<max-lb>2000</max-lb>
+		</weight>
+
+		<weight n="3">
+			<name>Not in use</name>
+			<weight-lb>0</weight-lb>
+			<max-lb>0</max-lb>
+		</weight>
+
+		<weight n="4">
+			<name>Not_In_Use</name>
+			<weight-lb>0</weight-lb>
+			<max-lb>300</max-lb>
+		</weight>	
+		
+		
+		<weight n="5">
+<name>Configuration</name>
+<weight-lb>0</weight-lb>
+<selected>none</selected>
+<opt>
+<name>none</name>
+<lbs>0</lbs>
+</opt>
+<opt>
+<name>Executive</name>
+<lbs>700</lbs>
+</opt>
+
+
+<opt>
+<name>Passenger</name>
+<lbs>800</lbs>
+</opt>
+
+<opt>
+<name>SAR</name>
+<lbs>1100</lbs>
+</opt>
+
+<opt>
+<name>Medivac</name>
+<lbs>1150</lbs>
+</opt>
+
+</weight>
+
+		<menubar>
+			<default>
+				<menu n="100">
+					<label>S-76C++</label>
+					<item>
+						<label>Autostart</label>
+						<binding>
+							<command>nasal</command>
+							<script>bo105.startup()</script>
+						</binding>
+					</item>
+					<item>
+						<label>Autoshutdown</label>
+						<binding>
+							<command>nasal</command>
+							<script>bo105.shutdown()</script>
+						</binding>
+					</item>
+					<item>
+						<label>Select Livery</label>
+						<binding>
+							<command>nasal</command>
+							<script>aircraft.livery.dialog.open()</script>
+						</binding>
+					</item>
+				</menu>
+			</default>
+		</menubar>
+
+
+		<help>
+			<title>s-76c++</title>
+			<key>
+				<name>{ }</name>
+				<desc>shutdown/start turbines</desc>
+			</key>
+			
+			<key>
+				<name>i</name>
+				<desc>toggle ignition switch</desc>
+			</key>
+			<key>
+				<name>m/M</name>
+				<desc>shift engine balance to right/left engine</desc>
+			</key>
+			<key>
+				<name>n/N</name>
+				<desc>engine power adjustment up/down</desc>
+			</key>
+			<key>
+				<name>r</name>
+				<desc>Activate winch crew</desc>
+			</key>
+			<key>
+				<name>Shift R</name>
+				<desc>Toggle Rotorbrake</desc>
+			</key>
+				<key>
+				<name>M/m</name>
+				<desc>Raise or lower the winch</desc>
+			</key>
+			
+			<key>
+				<name>MMB</name>
+				<desc>adjust power lever (middle mouse button)</desc>
+			</key>
+			
+			<key>
+				<name>w a s d</name>
+				<desc>Pan the search light arround.</desc>
+			</key>
+			
+			<line>Winch man is only available on configurations containing the side winch and when the sliding door is open </line>
+		</help>
+	</sim>
+
+	<consumables>
+		<fuel>
+			<tank>
+				<name>Main</name>
+				<selected type="bool" write="n">1</selected>
+				<density-ppg type="double" write="n">6.682</density-ppg>
+			</tank>
+
+			<tank>
+				<name>Supply</name>
+				<selected type="bool" write="n">1</selected>
+				<density-ppg type="double" write="n">6.682</density-ppg>
+			</tank>
+		</fuel>
+	</consumables>
+
+	<controls>
+	<gear>
+      <brake-parking>1.0</brake-parking>
+      <gear-down>true</gear-down>
+    </gear>
+		<rotor>
+			<reltarget type="double">0</reltarget>
+			<maxreltorque type="double">0</maxreltorque>
+		</rotor>
+
+		<armament>
+			<trigger type="bool">false</trigger>
+		</armament>
+
+		<engines>
+			<engine n="0">
+				<magnetos>1</magnetos>
+				<propeller-pitch alias="/controls/engines/power-trim"/>
+				<mixture alias="/controls/engines/power-balance"/>
+			</engine>
+			<engine n="1">
+				<magnetos>1</magnetos>
+				<propeller-pitch alias="/controls/engines/power-trim"/>
+				<mixture alias="/controls/engines/power-balance"/>
+				<throttle alias="/controls/engines/engine[0]/throttle"/>
+			</engine>
+			<power-trim type="double">0</power-trim>
+			<power-balance type="double">0</power-balance>
+		</engines>
+
+			<switches>
+	
+	<landing-lights-switch type="bool">false</landing-lights-switch>
+	<search-lights-switch type="bool">false</search-lights-switch>
+	<nav-lights-switch type="bool">false</nav-lights-switch>
+	<beacon-switch type="bool">false</beacon-switch>
+	<strobe-switch type="bool">false</strobe-switch>
+	<white-light-switch type="bool">false</white-light-switch>
+
+	</switches>
+	</controls>
+
+	<instrumentation>
+		<gsdi>
+			<serviceable type="bool">true</serviceable>
+			<enabled type="bool">true</enabled>
+		</gsdi>
+		
+        <mk-viii>                             <!-- http://wiki.flightgear.org/index.php/GPWS -->
+            <serviceable>true</serviceable>    <!-- EGPWS_ENABLE -->
+            <configuration-module>
+                <category-1>   1 </category-1>  <!-- AIRCRAFT_MODE_TYPE_SELECT -->
+                <category-8>                    <!-- RADIO_ALTITUDE_INPUT_SELECT -->
+                    3 <!-- YASim --> 
+                </category-8>
+            </configuration-module>
+            <inputs>                           <!-- Module I/O -->
+                <arinc429>
+                    <decision-height-ncd> false </decision-height-ncd>
+                    <decision-height> 200 </decision-height>
+                </arinc429>
+            </inputs>
+            <speaker>
+                <volume>0.5</volume>
+            </speaker>
+        </mk-viii>
+
+
+        <tcas>
+            <serviceable type="bool">true</serviceable>
+            <inputs>
+                <mode type="int">3</mode>       <!-- 0=off, 1=standby, 2=TA-only, 3=auto(TA/RA) -->
+            </inputs>
+            <!--voice>
+                <file-prefix type="string">Sounds/tcas/</file-prefix>
+            </voice-->
+            <speaker>                           <!-- Speaker Configuration -->
+                <max-dist type="double">2</max-dist>        <!-- Max. distance where speaker is heard -->
+                <reference-dist type="double">1</reference-dist> <!-- Distance to pilot -->
+                <volume type="double"> 1 </volume>          <!-- Volume at reference distance -->
+            </speaker>
+            <range type="int">3</range>
+        </tcas>
+
+        <tcas-display>
+            <radar-texture-path type="string">Aircraft/Sikorsky-76C/Models/Instruments/TCAS/tcas-display.png</radar-texture-path>
+            <symbol-texture-path type="string">Aircraft/Sikorsky-76C/Models/Instruments/TCAS/symbols.png</symbol-texture-path>
+            <font>
+                <color>
+                    <red type="float">0.7</red>
+                    <green type="float">0.7</green>
+                    <blue type="float">0.7</blue>
+                    <alpha type="float">1</alpha>
+                </color>
+                <name type="string">helvetica_bold.txf</name>
+                <size type="float">14</size>
+                <line-spacing type="float">0.01</line-spacing>
+            </font>
+            <serviceable type="bool">true</serviceable>
+            <range type="int" archive="y">3</range>
+            <aircraft-heading-up type="bool">true</aircraft-heading-up>
+            <heading-up-deg type="float">0.01</heading-up-deg>
+            <x-center type="float">0.5</x-center>
+            <y-center type="float">0.5</y-center>
+            <display>
+            </display>
+            <line-width type="double">3</line-width>
+        </tcas-display>
+
+        <radar>
+            <switch type="string" >off</switch>
+            <switch-pos type="int">0</switch-pos>
+            <mode-control type="int" >1</mode-control>
+            <display-controls>
+                <WX type="bool" >false</WX>
+                <pos type="bool" >true</pos>
+                <data type="bool" >false</data>
+                <centre type="bool" >true</centre>
+        <symbol type="bool" >true</symbol>
+                <tcas type="bool" >true</tcas>
+            </display-controls>
+            <serviceable type="bool">true</serviceable>
+            <range type="int" >10</range>
+            <reference-range-nm type="double" >20</reference-range-nm>
+            <mode type="string" >WX</mode>
+            <font>
+                <tcas>
+                   <color n="0"> <!-- distant targets -->
+                       <red type="float">0</red>
+                       <green type="float">1</green>
+                       <blue type="float">1</blue>
+                   </color>
+                   <color n="1"> <!-- proximity targets -->
+                       <red type="float">0</red>
+                       <green type="float">1</green>
+                       <blue type="float">1</blue>
+                   </color>
+                   <color n="2"> <!-- TA threat targets -->
+                       <red type="float">1</red>
+                       <green type="float">0.5</green>
+                       <blue type="float">0</blue>
+                   </color>
+                   <color n="3"> <!-- RA threat targets -->
+                       <red type="float">1</red>
+                       <green type="float">0</green>
+                       <blue type="float">0</blue>
+                   </color>
+               </tcas>
+            </font>
+            <lightning type="bool" >false</lightning>
+            <display-mode type="string" >map</display-mode>
+            <radar-texture-path type="string">Aircraft/Sikorsky-76C/Models/Instruments/tcas-2.png</radar-texture-path>
+            <echo-texture-path type="string" >Aircraft/Sikorsky-76C/Models/Instruments/wxecho.png</echo-texture-path>
+            <minimized type="bool" >false</minimized>
+            <heading-marker type="bool" >true</heading-marker>
+            <limit-deg type="int">180</limit-deg>
+        </radar>
+    <standby-altimeter>
+        <serviceable type="bool">1</serviceable>
+    </standby-altimeter>
+    <encoder>
+        <serviceable type="bool">1</serviceable>
+    </encoder>
+    <transponder>
+        <id-code>1200</id-code>
+    </transponder>
+    <filter-monitor>
+        <test type="bool">0</test>
+        <life n="0">0.1</life>
+        <life n="1">0.1</life>
+    </filter-monitor>
+	</instrumentation>
+
+	<input>
+		<keyboard>
+		
+		<key n="4">
+    <name>Ctrl-d</name>
+    <desc>Toggle SAS enabled</desc>
+    <binding>
+      <command>nasal</command>
+      <script>bo105.sas.toggleEnable();</script>
+    </binding>
+  </key>
+
+<key n="6">
+		<name>Ctrl-f</name>
+		<desc>Toggle AutoHover</desc>
+		<binding>
+			<command>nasal</command>
+			<script>bo105.afcs.toggleAutoHover();</script>
+		</binding>
+	</key>
+
+			
+
+				<key n="114">
+                                <name>r</name>
+                                <desc>Toggle Rescue</desc>
+                                <binding>
+                                        <command>property-toggle</command>
+                                        <property>sim/multiplay/generic/float[12]</property>
+                                </binding>
+                        </key>
+                       <key n="109">
+                                <name>m</name>
+                                <desc>Lift Winch</desc>
+                                <repeatable type="bool">true</repeatable>
+                                <binding>
+                                        <command>property-adjust</command>
+                                        <property>sim/model/rescue-lift</property>
+                                        <step type="double">-0.01</step>
+                                        <min>0.0</min>
+                                        <max>1</max>
+                                </binding>
+                        </key>
+                        <key n="77">
+                                <name>M</name>
+                                <desc>Down Winch</desc>
+                                <repeatable type="bool">true</repeatable>
+                                <binding>
+                                        <command>property-adjust</command>
+                                        <property>sim/model/rescue-lift</property>
+                                        <step type="double">0.01</step>
+                                        <min>0.0</min>
+                                        <max>1</max>
+                                </binding>
+                        </key>
+			
+
+			
+
+		
+
+			<key n="105">
+				<name>i</name>
+				<desc>Toggle ignition switch</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						foreach (var e; controls.engines) {
+							if (e.selected.getValue()) {
+								var i = e.controls.getNode("ignition", 1);
+								i.setValue(!i.getValue());
+							}
+						}
+					</script>
+				</binding>
+			</key>
+<!--
+			<key n="114">
+				<name>r</name>
+				<desc>Apply rotor brake</desc>
+				<binding>
+					<command>nasal</command>
+					<script>interpolate("/controls/rotor/brake", 1.0, 2)</script>
+				</binding>
+				<mod-up>
+					<binding>
+						<command>nasal</command>
+						<script>interpolate("/controls/rotor/brake", 0.0, 2)</script>
+					</binding>
+				</mod-up>
+			</key>
+-->
+			
+
+			
+
+			<key n="123">
+				<name>{</name>
+				<desc>Shutdown Engines</desc>
+				<binding>
+					<command>nasal</command>
+					<script>bo105.shutdown()</script>
+					<condition>
+						<property>/sim/signals/fdm-initialized</property>
+					</condition>
+				</binding>
+			</key>
+
+			<key n="125">
+				<name>}</name>
+				<desc>Start Engines</desc>
+				<binding>
+					<command>nasal</command>
+					<script>bo105.startup()</script>
+					<condition>
+						<property>/sim/signals/fdm-initialized</property>
+					</condition>
+				</binding>
+			</key>
+			
+						
+<key n="97">
+<name>a</name>
+<desc>Rotate Spotlight left</desc>
+<repeatable>true</repeatable>
+<interval-sec>0.001</interval-sec>
+<binding>
+ <command>property-adjust</command>
+<property>sim/multiplay/generic/float[10]</property>
+ <step>1</step>
+ <!-- <min>0</min> -->
+ <max>110</max>
+</binding>
+</key>
+
+<key n="100">
+<name>d</name>
+<desc>Rotate Spotlight right</desc>
+<repeatable>true</repeatable>
+<interval-sec>0.001</interval-sec>
+<binding>
+ <command>property-adjust</command>
+<property>sim/multiplay/generic/float[10]</property>
+ <step>-1</step>
+<!-- <min>-110</min> -->
+<max>110</max>
+</binding>
+</key>
+
+<key n="119">
+<name>w</name>
+<desc>Rotate Spotlight up</desc>
+<repeatable>true</repeatable>
+<interval-sec>0.001</interval-sec>
+<binding>
+ <command>property-adjust</command>
+<property>sim/multiplay/generic/float[11]</property>
+ <step>-1</step>
+ <!--<min>0</min>-->
+ <max>0</max>
+</binding>
+</key>
+
+<key n="115">
+<name>s</name>
+<desc>Rotate Spotlight down</desc>
+<repeatable>true</repeatable>
+<interval-sec>0.001</interval-sec>
+<binding>
+ <command>property-adjust</command>
+ <property>sim/multiplay/generic/float[11]</property>
+ <step>1</step>
+  <!--<min>0</min>-->
+ <max>0</max>
+</binding>
+</key>
+			
+		</keyboard>
+	</input>
+
+	<nasal>
+		<bo105>
+			   <file>Aircraft/Sikorsky-76C/Nasal/bo105.nas</file>
+			 <!--<file>Aircraft/Sikorsky-76C/Nasal/Electrical.nas</file>-->
+               <file>Aircraft/Sikorsky-76C/Nasal/RTU4200.nas</file>
+			   <file>Aircraft/Sikorsky-76C/Nasal/liveries.nas</file>
+			   <file>Aircraft/Sikorsky-76C/Nasal/engines.nas</file>
+			   <file>Aircraft/Instruments-3d/ki266/ki266.nas</file>
+			   <file>Aircraft/Sikorsky-76C/Nasal/fcs.nas</file>
+			   <file>Aircraft/Sikorsky-76C/Nasal/casdisable.nas</file>
+		</bo105>
+		
+			
+	    <lights>
+			<file>Aircraft/Sikorsky-76C/Nasal/Lights.nas</file>
+        </lights>
+		
+		<kns80>
+			<file>Aircraft/Sikorsky-76C/Models/Instruments/kns80/KNS80.nas</file>
+		</kns80>	
+		
+        <radar><file>Aircraft/Instruments-3d/RDR-160/RDR160.nas</file></radar>
+        <m877><file>Aircraft/Instruments-3d/clock/M877/M877.nas</file></m877>
+       <!-- <dialogs><file>Aircraft/Sikorsky-76C/Nasal/dialogs.nas</file></dialogs> 
+        <FD><file>Aircraft/Sikorsky-76C/Nasal/spz700.nas</file></FD>-->
+		
+		<dual_control_tools>
+   <file>Aircraft/Generic/DualControl/dual-control-tools.nas</file>
+  </dual_control_tools>
+  <aircraft_dual_control>
+   <file>Aircraft/Sikorsky-76C/Nasal/76-dual-control.nas</file>
+  </aircraft_dual_control>
+ 
+		
+	</nasal>
+
+	<rotors>
+		<main>
+			<rpm type="double">0</rpm>
+		</main>
+	</rotors>
+</PropertyList>
